@@ -1,0 +1,23 @@
+{
+  "name": "forkifyapp",
+  "version": "1.0.0",
+  "description": "Recipe app",
+  "scripts": {
+    "dev": "parcel index.html",
+    "build": "parcel build index.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rluki99/ForkifyApp.git"
+  },
+  "author": "Lukasz Beczek",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rluki99/ForkifyApp/issues"
+  },
+  "homepage": "https://github.com/rluki99/ForkifyApp#readme",
+  "devDependencies": {
+    "@parcel/transformer-sass": "^2.10.3",
+    "parcel": "^2.10.3"
+  }
+}
