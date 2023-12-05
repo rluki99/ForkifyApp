@@ -1,5 +1,5 @@
 import icons from 'url:../../img/icons.svg';
-import fracty from 'fracty'
+import fracty from 'fracty';
 
 class RecipeView {
   #parentElement = document.querySelector('.recipe');
@@ -8,7 +8,7 @@ class RecipeView {
   render(data) {
     this.#data = data;
     const markup = this.#generateMarkup();
-    this.#clear() ;
+    this.#clear();
     this.#parentElement.insertAdjacentHTML('afterbegin', markup);
   }
 
@@ -26,6 +26,10 @@ class RecipeView {
     `;
     this.#parentElement.innerHTML = '';
     this.#parentElement.insertAdjacentHTML('afterbegin', markup);
+  }
+
+  addHandlerRender(handler) {
+    ['hashchange', 'load'].forEach(ev => window.addEventListener(ev, handler));
   }
 
   #generateMarkup() {
@@ -99,7 +103,7 @@ class RecipeView {
             This recipe was carefully designed and tested by
             <span class="recipe__publisher">${
               this.#data.publisher
-            }/span>. Please check out
+            }</span>. Please check out
             directions at their website.
           </p>
           <a
@@ -117,20 +121,20 @@ class RecipeView {
   }
 
   #generateMarkupIngredient(ing) {
-    ing => {
-        return `
+    return `
       <li class="recipe__ingredient">
         <svg class="recipe__icon">
           <use href="${icons}#icon-check"></use>
         </svg>
-        <div class="recipe__quantity">${ing.quantity ? fracty(ing.quantity) : ''}</div>
+        <div class="recipe__quantity">${
+          ing.quantity ? fracty(ing.quantity) : ''
+        }</div>
         <div class="recipe__description">
           <span class="recipe__unit">${ing.unit}</span>
           ${ing.description}
         </div>
       </li>
       `;
-      }
   }
 }
 
