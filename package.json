@@ -5,7 +5,7 @@
   "scripts": {
     "cleanup": "rm -rf .parcel-cache dist",
     "dev": "npm run cleanup && parcel index.html",
-    "build": "parcel build index.html"
+    "build": "npm run cleanup && parcel build index.html --dist-dir ./dist"
   },
   "repository": {
     "type": "git",
